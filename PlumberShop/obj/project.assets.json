@@ -13473,11 +13473,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\тато_сайти\\ASP.NET\\DomSlug\\PlumberShop\\PlumberShop.csproj",
+      "projectUniqueName": "F:\\plumbershop\\PlumberShop\\PlumberShop.csproj",
       "projectName": "PlumberShop",
-      "projectPath": "F:\\тато_сайти\\ASP.NET\\DomSlug\\PlumberShop\\PlumberShop.csproj",
+      "projectPath": "F:\\plumbershop\\PlumberShop\\PlumberShop.csproj",
       "packagesPath": "C:\\Users\\ANNA\\.nuget\\packages\\",
-      "outputPath": "F:\\тато_сайти\\ASP.NET\\DomSlug\\PlumberShop\\obj\\",
+      "outputPath": "F:\\plumbershop\\PlumberShop\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -13496,8 +13496,8 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "F:\\тато_сайти\\ASP.NET\\DomSlug\\DAL\\DAL.csproj": {
-              "projectPath": "F:\\тато_сайти\\ASP.NET\\DomSlug\\DAL\\DAL.csproj"
+            "F:\\plumbershop\\DAL\\DAL.csproj": {
+              "projectPath": "F:\\plumbershop\\DAL\\DAL.csproj"
             }
           }
         }

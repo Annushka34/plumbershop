@@ -3584,11 +3584,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\тато_сайти\\ASP.NET\\DomSlug\\DAL\\DAL.csproj",
+      "projectUniqueName": "F:\\plumbershop\\DAL\\DAL.csproj",
       "projectName": "DAL",
-      "projectPath": "F:\\тато_сайти\\ASP.NET\\DomSlug\\DAL\\DAL.csproj",
+      "projectPath": "F:\\plumbershop\\DAL\\DAL.csproj",
       "packagesPath": "C:\\Users\\ANNA\\.nuget\\packages\\",
-      "outputPath": "F:\\тато_сайти\\ASP.NET\\DomSlug\\DAL\\obj\\",
+      "outputPath": "F:\\plumbershop\\DAL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
