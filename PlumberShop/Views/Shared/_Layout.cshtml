@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+    <link href="~/fonts/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/css/templatemo-style.css">
+
+    <title>Домова служба</title>
+</head>
+
+<body>
+
+
+    <div>@RenderBody()</div>
+    <div class="text-center footer">
+        <div class="container">
+            Розробник @@ 2015 Пилаєва А.
+        </div>
+        <div> <a href="~/Post/Users">Users</a> </div>
+        <div> <a href="~/Post/Create">Create new post</a> </div>
+    </div>
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Форма обратной связи</button>
+
+
+    <!-- HTML-код модального окна -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Зареєструйтесь або увійдіть</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="form-control" id="user_email" placeholder="Email">
+                    <input type="text" class="form-control" id="user_name" placeholder="name">
+                    <input type="password" class="form-control" id="user_paswd" placeholder="password">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Відміна</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="btn-send">Реєстрація</button>
+                    <button type="button" class="btn btn-primary" id="btn-log">Логін</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    @*<script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>*@
+    <script src="js/jquery.singlePageNav.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#btn-log').click(function () {
+                var user = new Object();
+                user.Email = $('#user_email').val();
+                user.Password = $('#user_paswd').val();
+                $.ajax({
+                    type: "POST", //метод передачи данных
+                    url: '/Post/Login', //обработчик
+                    data: JSON.stringify(user),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (data) {
+                        sessionStorage.setItem("token", data.body);
+                        document.getElementById("user_paswd").value = data;
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script>
+        // Check scroll position and add/remove background to navbar
+        function checkScrollPosition() {
+            if ($(window).scrollTop() > 50) {
+                $(".fixed-header").addClass("scroll");
+            } else {
+                $(".fixed-header").removeClass("scroll");
+            }
+        }
+
+        $(document).ready(function () {
+            // Single page nav
+            $('.fixed-header').singlePageNav({
+                offset: 59,
+                filter: ':not(.external)',
+                updateHash: true
+            });
+
+            checkScrollPosition();
+
+            // nav bar
+            $('.navbar-toggle').click(function () {
+                $('.main-menu').toggleClass('show');
+            });
+
+            $('.main-menu a').click(function () {
+                $('.main-menu').removeClass('show');
+            });
+        });
+
+        $(window).on("scroll", function () {
+            checkScrollPosition();
+        });
+    </script>
+
+    @*<script type="text/javascript">
+            $(document).ready(function () {
+                $('#btn-send').click(function () {
+                    var email = $('#email1').val();
+                    var text = $('#text').val();
+                });
+            });
+        </script>*@
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#btn-send').click(function () {
+                var user = new Object();
+                user.Name = $('#user_name').val();
+                user.Email = $('#user_email').val();
+                user.Password = $('#user_paswd').val();
+                $.ajax({
+                    type: "POST", //метод передачи данных
+                    url: '/Post/Register', //обработчик
+                    data: JSON.stringify(user),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (data) { //получение результата
+                    }
+                });
+            });
+        });
+    </script>
+
+
+
+</body>
+</html>
